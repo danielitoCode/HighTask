@@ -44,7 +44,6 @@ kotlin {
             implementation(libs.koin.compose)
             implementation(libs.koin.compose.viewmodel)
             implementation(libs.koin.compose.viewmodel.navigation)
-            implementation(libs.koin.test)
             // Navegacion
             implementation("org.jetbrains.androidx.navigation:navigation-compose:2.9.1")
             implementation(libs.ktor.serialization.kotlinx.json)
@@ -55,8 +54,14 @@ kotlin {
             implementation(libs.ktor.client.content.negotiation)
             implementation(libs.ktor.client.logs)
         }
-        commonTest.dependencies {
-            implementation(libs.kotlin.test)
+        wasmJsTest.dependencies {
+            implementation("org.jetbrains.kotlin:kotlin-test-wasm-js:2.3.0")
+            implementation(libs.koin.test)
+        }
+
+        jsTest.dependencies {
+            implementation("org.jetbrains.kotlin:kotlin-test-js:2.3.0")
+            implementation(libs.koin.test)
         }
     }
 }
